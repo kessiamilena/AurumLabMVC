@@ -1,0 +1,135 @@
+body{ 
+    background: var(--branco); 
+    color: var(--borda); }
+
+.container{
+  margin: 40px 60px;
+  padding: 0 20px;
+}
+
+/* Faixa superior */
+.faixa-topo{
+  background-color:  var(--fundo); 
+  color: var(--branco);
+  border-radius: 20px;
+  padding: 36px 42px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 24px;
+}
+
+.titulo{
+  font-size: 2em;
+  font-weight: 800;
+}
+
+.subtitulo{
+  margin-top: 8px;
+  opacity: 0.95;
+}
+
+/* Formulário */
+.form-cadastro{
+  display: flex;
+  flex-direction: column;
+  gap: 28px 56px;
+  margin-top: 56px;
+  padding: 30px 80px;
+}
+
+.linha-cima, .linha-baixo {
+    display: flex;
+    gap: 10%;
+}
+
+.campo{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.campo label{
+  color: var(--borda);
+  font-weight: 700;
+}
+
+input{
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 16px;
+  border-radius: 10px;
+  background: var(--branco);
+  border: 2px solid var(--borda);
+  outline: none;
+  color: var(--borda);
+}
+
+input::placeholder{ 
+    color: #747474; 
+}
+
+.ajuda-senha{
+  margin-top: 8px;
+  font-size: 0.86rem;
+  color: #747474;
+}
+
+/* Ações */
+.acoes{
+  display: grid;
+  justify-items: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.btn{
+  text-align: center;
+  padding: 14px 22px;
+  border-radius: 12px;
+  font-weight: 800;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 10px 20px var(--sombra-passo-escura);
+  background: #152536; 
+  color: var(--amarelo);
+  width: 30%;
+}
+
+.btn:hover{ 
+  filter: brightness(1.15); 
+}
+
+.link-voltar{
+  color: #111;
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+.erro-login {
+    display: none;
+    color: var(--erro);
+    text-align: center;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.erro-login.mostrar {
+    display: block;
+}
+
+
+/* Responsivo */
+@media (max-width: 860px){
+  
+  .btn-primario{ 
+      width: 100%; 
+  }
+
+  .linha-baixo, .linha-cima {
+          flex-wrap: wrap;
+          gap: 28px 56px;
+      }
+}

@@ -1,0 +1,70 @@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aurum Lab - Cadastro</title>
+
+  <link rel="stylesheet" href="~/styles/global.css">
+  <link rel="stylesheet" href="~/styles/cadastro.css">
+</head>
+
+<body>
+  <main class="container">
+    
+    <!-- Faixa superior -->
+    <section class="faixa-topo">
+      <div class="texto-topo">
+        <h1 class="titulo">Cadastro</h1>
+        <p class="subtitulo">Crie uma nova conta de usuário para o Aurum Lab</p>
+      </div>
+      <img class="logo-faixa" src="~/assets/img/icone-logo.svg" alt="">
+    </section>
+
+    <!-- Formulário -->
+    <form class="form-cadastro" asp-action="Criar" asp-controller="Cadastro" method="post">
+
+      <div class="linha-cima">
+          <div class="campo">
+            <label for="nome">Nome completo</label>
+            <input id="nome" name="nome" type="text" placeholder="seu nome">
+          </div>
+
+          <div class="campo">
+            <label for="senha">Senha</label>
+            <input id="senha" name="senha" type="password" placeholder="sua senha">
+          </div>
+      </div>
+
+      <div class="linha-baixo">
+          <div class="campo">
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" placeholder="email@email.com">
+          </div>
+
+          <div class="campo">
+            <label for="confirmar">Confirmar senha</label>
+            <input id="confirmar" name="confirmar" type="password" placeholder="confirme sua senha">
+            <span class="ajuda-senha">A senha deve conter letras, números e caracteres especiais para maior segurança.</span>
+          </div>
+      </div>
+
+      <!-- MENSAGEM DE ERRO -->
+      @if(ViewBag.Erro != null)
+      {
+          <p class="erro-login mostrar">@ViewBag.Erro</p>
+      }
+
+      <div class="acoes">
+        <button type="submit" class="btn btn-primario">CADASTRAR</button>
+        <a href="/Login/Index" class="link-voltar">Voltar</a>
+      </div>
+
+    </form>
+  </main>
+</body>
+</html>
