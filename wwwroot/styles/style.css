@@ -1,0 +1,352 @@
+
+body {
+    color: var(--branco);
+    background-color: var(--bg-home);
+}
+
+/* CABEÇALHO */
+
+.cabecalho {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--fundo);
+    box-shadow: 0 1px 0 var(--borda-suave);
+}
+
+.logo {
+    width: 4%;
+}
+
+.barra-topo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    height: 10vh;
+    border-bottom: 1px solid var(--branco);
+}
+
+.navegacao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+    padding: 40px;
+    background-color: var(--bg-home);
+}
+
+.lista-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    gap: 10%;
+    width: 100%;
+}
+
+.lista-menu a{
+    color: var(--branco);
+    font-size: 1.2em;
+    text-decoration: none;
+}
+
+.lista-menu a:hover{
+    opacity: 0.5;
+}
+
+.item-login {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cadeado {
+    width: 20px;
+    height: 20px;
+}
+
+/* BANNER */
+
+.secao-banner {
+    background-image: url("../assets/img/Banner\ Home.png");
+    background-position: 20% bottom;
+    background-repeat: no-repeat;
+    background-size: 70%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    height: 50vh;
+    padding: 0 10%;
+}
+
+.textos-banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 45%;
+}
+
+.titulo-banner-principal {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.subtitulo-banner {
+    text-align: center;
+    color: var(--texto-suave);
+}
+
+/* SERVIÇOS */
+
+.secao-servicos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    background-color: var(--bg-home);
+    padding: 5% 10% 15%;
+}
+
+h2 {
+    font-size: 1.8em;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.linha-decorativa {
+    width: 220px;
+    height: 2px;
+    background-color: var(--linha-decorativa);
+    opacity: .4;
+}
+
+.cabecalho-secao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.grade-servicos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.cartao-servico {
+    border-radius: 20px;
+    padding: 50px 25px;
+    box-shadow: 
+        30px 30px 20px var(--sombra-neo-escura),
+        10px 10px 4px var(--sombra-neo-clara);
+    border: 1px solid var(--borda-suave);
+}
+
+.icone {
+    height: 36px;
+    margin-bottom: 10px
+}
+
+.titulo-cartao {
+    margin: 8px 0;
+    font-size: 1.2em;
+    font-weight: 500;
+    color: var(--branco);
+}
+
+.descricao-cartao {
+    color: var(--texto-suave);
+    font-size: 0.95em;
+}
+
+/* MONITORAMENTO */
+
+.secao-monitoramento {
+    background-image: url("../assets/img/Banner\ monitore\ dispositivos.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100vh;
+    padding: 80px 0;
+    display: flex;
+    align-items: center;
+}
+
+.titulo-banner-meio {
+    font-size: 1.8rem;
+    text-align: center;
+    width: 400px;
+    margin-left: 10%;
+}
+
+/* COMO FUNCIONA */
+
+.secao-como-funciona {
+    padding: 5% 10% 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40%;
+    height: 100vh;
+}
+
+.grade-passos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    justify-items: center;
+}
+
+.passo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 70%;
+}
+
+.numero-passo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+    border-radius: 16px;
+    font-weight: 800;
+    font-size: 1.8rem;
+    color: var(--amarelo);
+    box-shadow: 
+        -10px -5px 30px var(--sombra-passo-clara),
+        10px 10px 4px var(--sombra-passo-escura);
+    margin-bottom: 50px;
+}
+
+.titulo-passo {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.texto-passo {
+    color: var(--texto-suave);
+}
+
+/* DEPOIMENTOS */
+
+.secao-depoimentos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5% 10%;
+    height: 100vh;
+}
+
+.grade-depoimentos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.depoimento {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 20px;
+    padding: 18px 18px 20px;
+    box-shadow: 
+        -5px -5px 15px var(--sombra-passo-clara)
+        10px 10px 4px var(--sombra-passo-escura);
+}
+
+.topo-depoimento {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.foto-usuario {
+    width: 40px;
+    height: 40px;
+}
+
+.nome-usuario {
+    font-size: 1em;
+}
+
+.cargo-usuario {
+    color: var(--texto-suave);
+    font-size: 0.90em;
+}
+
+.texto-depoimento {
+    color: var(--texto-suave);
+    line-height: 1.6;
+}
+
+.botao-primario {
+    background-color: var(--amarelo);
+    color: var(--fundo);
+    padding: 12px 26px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: transform .15s ease;
+}
+
+.botao-primario:hover {
+    transform: translateY(-10px);
+    background-color: #D7A31D;
+}
+
+/* RODAPÉ */
+
+.rodape {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: var(--fundo);
+    padding: 2% 10%;
+    color: var(--branco);
+    height: 40vh;
+}
+
+.rodape-conteudo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-rodape {
+    width: 200px;
+}
+
+.lista-rodape{
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+li a {
+    text-decoration: none;
+    color: var(--branco);
+}
+
+.linha-divisoria {
+    height: 1px;
+    background-color: var(--borda-suave);
+    margin-top: 20px;
+}
+ 
+.direitos {
+    text-align: center;
+    color: var(--texto-suave);
+    font-size: 1em;
+    margin-top: 20px;
+}

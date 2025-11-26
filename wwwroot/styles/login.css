@@ -1,0 +1,171 @@
+body {
+    background-color: var(--branco);
+    color: var(--texto-escuro);
+}
+
+.container-login {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    height: 100vh;
+}
+
+/* LADO ESQUERDO */
+
+.painel-esquerdo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 50px;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    background-color: var(--fundo);
+    color: var(--branco);
+}
+
+.logo {
+    width: 50%;
+    margin: 50px 0 10px;
+}
+
+.descricao {
+    margin: 0 0 60px;
+    font-size: 0.9em;
+    font-weight: 300;
+}
+
+.link-cadastro {
+    color: var(--amarelo);
+    font-weight: 600;
+    margin-top: 50px;
+    text-decoration: underline;
+}
+
+/* LADO DIREITO */
+
+.painel-direito {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 50px;
+    padding: 40px 60px;
+}
+
+.cabecalho-login {
+    margin-bottom: 30px;
+}
+
+.titulo-login {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.subtitulo-login {
+    margin: 8px 0 0;
+    color: #333333;
+}
+
+.form-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    gap: 16px;
+}
+
+label {
+    font-weight: 600;
+    align-self: flex-start;
+}
+
+input {
+    padding: 12px;
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.campo-senha {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+.icone-olho {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%); /* Move o elemento para cima metade da sua própria altura */
+}
+
+.botao-login {
+    background-color: var(--fundo);
+    color: var(--amarelo);
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.botao-login:hover {
+    background-color: #26394E;
+    cursor: pointer;
+}
+
+.link-esqueci {
+    text-align: center;
+    font-size: 0.9rem;
+    text-decoration: underline;
+    font-weight: 600;
+    color: var(--texto-escuro);
+    margin-top: 10px;
+}
+
+.erro-login {
+    color: var(--erro);
+    font-weight: 600;
+    text-align: center;
+    margin-top: 20px;
+    display: none; /* Esconde o elemento na tela */
+}
+
+.erro-login.mostrar { 
+    display: block; 
+}
+
+.logo-resp {
+    display: none;
+}
+
+/* RESPONSIVIDADE - MEDIA QUERY */
+
+@media (max-width: 900px) {
+    .container-login {
+        grid-template-columns: 1fr;
+    }
+
+    .painel-esquerdo {
+        margin: 0;
+    }
+
+    .descricao {
+        font-size: 1.1em;
+        max-width: 55%;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .logo-resp {
+        display: inline;
+        margin-bottom: 50px;
+    }
+}

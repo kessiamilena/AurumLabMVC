@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Ajustes Globais */
+
+:root {
+    --fundo: #132437;
+    --bg-home: #010300;
+    --linha-decorativa: #C7CDD6;
+    --texto-suave: #B3C0Cf;
+    --barra: #1A2A3D;
+    --barra-interna: #24364B;
+    --cartao: #0F1B2A;
+    --branco: #FFFFFF;
+    --amarelo: #F7C13C;
+    --borda-suave: rgba(255, 255, 255, 0.2);
+    --cinza-borda: rgba(255,255,255,0.06);
+    --sombra-passo-clara: rgba(145,145,145,0.2);
+    --sombra-passo-escura: rgba(0,0,0,0.50);
+    --sombra-neo-clara: rgba(255,255,255,0.7);
+    --sombra-neo-escura: rgba(0,0,0,0.8);
+    --texto-escuro: #0C0101;
+    --borda: #313A3E;
+    --erro: #D40000;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Noto Sans", sans-serif;
+}
+
+html{
+    scroll-behavior: smooth;
+}
