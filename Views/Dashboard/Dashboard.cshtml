@@ -1,0 +1,134 @@
+@model AurumLab.Models.DashboardViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurum Lab - Dashboard</title>
+
+  <link rel="stylesheet" href="~/styles/dashboard.css">
+  <link rel="stylesheet" href="~/styles/global.css">
+</head>
+
+<body>
+  <div class="layout">
+
+    <!-- Barra lateral -->
+    <aside class="barra-lateral">
+      <a class="marca" href="#">
+        <img class="logo" src="~/assets/img/icone-logo.svg" alt="Logo Aurum Lab">
+      </a>
+
+      <nav class="menu-lateral">
+        <ul class="lista-atalhos">
+          <div class="atalhos-topo">
+            <li><a class="atalho ativo"><img class="icone-aside" src="~/assets/icon/chart-simple-black.svg"></a></li>
+            <li><a class="atalho" href="~/Perfil/Index"><img class="icone-aside" src="~/assets/icon/user-circle.svg"></a></li>
+            <li><a class="atalho" href="~/Dispositivos/Index"><img class="icone-aside" src="~/assets/icon/desktop.svg"></a></li>
+          </div>
+
+          <li><a class="atalho" href="~/Login/Sair"><img class="icone-aside" src="~/assets/icon/arrow-right-from-bracket.svg"></a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Conteúdo principal -->
+    <div class="conteudo">
+    @* @if (TempData["Erro"] != null)
+      {
+          <div class="alerta-erro">
+              @TempData["Erro"]
+          </div>
+      } *@
+      <!-- Topo -->
+      <header class="topo">
+        <div class="titulo-area">
+          <h1 class="titulo-pagina">Dashboard</h1>
+          <span class="linha-titulo"></span>
+        </div>
+
+        <div class="perfil">
+          <span class="saudacao">Olá, @Model.NomeUsuario!</span>
+
+          <img class="avatar"
+               src="@(string.IsNullOrEmpty(Model.FotoUsuario) 
+                        ? "/assets/img/img-perfil.png" 
+                        : Model.FotoUsuario)"
+               alt="Foto do usuário">
+        </div>
+      </header>
+
+      <a href="~/Dispositivos/Index" class="botao-primario">Listar dispositivos</a>
+      
+
+      <!-- Métricas -->
+      <section class="secao-metricas">
+
+        <article class="cartao-metrica">
+          <header class="topo-metrica">
+            <img class="icone" src="~/assets/icon/computer.svg">
+            <span class="valor-metrica numero">@Model.TotalDispositivos</span>
+          </header>
+          <h2 class="titulo-metrica">Total de Dispositivos</h2>
+        </article>
+
+        <article class="cartao-metrica">
+          <header class="topo-metrica">
+            <img class="icone" src="~/assets/icon/computer.svg">
+            <span class="valor-metrica numero">@Model.TotalAtivos</span>
+          </header>
+          <h2 class="titulo-metrica">Dispositivos Ativos</h2>
+        </article>
+
+        <article class="cartao-metrica">
+          <header class="topo-metrica">
+            <img class="icone" src="~/assets/icon/computer.svg">
+            <span class="valor-metrica numero">@Model.TotalEmManutencao</span>
+          </header>
+          <h2 class="titulo-metrica">Dispositvos Em Manutenção</h2>
+        </article>
+
+      </section>
+
+      <!-- Painéis -->
+      <section class="painel grade-2">
+
+        <!-- Tipos -->
+        <article class="bloco lista-progresso">
+          <h3 class="titulo-bloco">Tipos de Dispositivos</h3>
+
+          <ul class="lista-itens">
+            @foreach (var tipo in Model.DispositivosPorTipo)
+            {
+                <li class="linha">
+                  <span class="nome">@tipo.Nome</span>
+                  <span class="quantidade">@tipo.Quantidade</span>
+                </li>
+            }
+          </ul>
+        </article>
+
+        <!-- Locais -->
+        <article class="bloco lista-simples">
+          <h3 class="titulo-bloco">Locais dos Dispositivos</h3>
+
+          <ul class="lista-coluna">
+            @foreach (var local in Model.Locais)
+            {
+                <li>@local.Nome</li>
+            }
+          </ul>
+        </article>
+
+      </section>
+
+    </div>
+  </div>
+    
+
+</body>
+</html>
