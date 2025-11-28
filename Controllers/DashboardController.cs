@@ -1,5 +1,6 @@
 
 using AurumLab.Data;
+using AurumLab.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AurumLab.Controllers
@@ -44,15 +45,53 @@ namespace AurumLab.Controllers
                     //      Nome = "Sensor" (exemplo)
                     // }
                 )
+                .GroupBy(item => item.Nome) // agrupa dispositivos por nome do tipo
+                .Select(grupo => new ItemAgrupado // cria a lista de item agrupado para retornar somente nome e quantidade
+                {
+                    Nome = grupo.Key, // grupo.Key retorna o nome do tipo (ex. Computador, teclado)
+                    Quantidade = grupo.Count() // Count() = retorna quantidade de dispositivos daquele tipo
+                })
+                .ToList(); // Executa a consulta no banco e transforma em lista
 
-            var dispositivosPorTipo = _context.Dispositivos
-            .Join(
-                    _context.TipoDispositivos, 
-                    dispositivo => dispositivo.IdTipoDispositivo, 
-                    tipoDispositivo => tipoDispositivo.IdTipoDispositivo, 
-                    (dispositivo, tipoDispositivo) => new {dispositivo, tipoDispositivo.Nome}
+                // Lista de locais
+                var locais = _context.LocalDispositivos
+                    .OrderBy(local => local.Nome) // ordena locais por nome
+                    .ToList(); // buscar os locais cadastrados, ordenar pelo nome e converter para lista.
 
-                )
+                // VIEW MODEL
+                // Cria a ViewModel com todas as informações que a página precisa.
+                DashboardViewModel viewModel = new DashboardViewModel
+                {
+                    // usuario?.NomeUsuario -> Se usuario não for null, então pegue NomeUsuario (nome que está no banco)
+                    // ?? "Usuário" -> senão, se for null, retorne "Usuário" como nome por padrão
+                    NomeUsuario = usuario?.NomeUsuario ?? "Usuário",
+                    FotoUsuario = "/assets/img/img-perfil.png",
+
+                    TotalDispositivos = _context.Dispositivos.Count(),
+                    TotalAtivos = _context.Dispositivos.Count(dispositivos => dispositivos.SituacaoOperacional == "Operando"),
+                    TotalEmManutencao = _context.Dispositivos.Count(dispositivos => dispositivos.SituacaoOperacional == "Em manutenção"),
+                    TotalInoperantes = _context.Dispositivos.Count(dispositivos => dispositivos.SituacaoOperacional == "Inoperante"),
+
+                    DispositivosPorTipo = dispositivosPorTipo,
+                    Locais = locais
+
+                };
+            
+                return View(viewModel);
+        }
+    }
+}
+
+                // EXPLICAÇÃO JOIN Tabela Dispositivos d com Tabela TipoDispositivo td
+
+                // var dispositivosPorTipo = _context.Dispositivos
+                //             .Join(
+                //                     _context.TipoDispositivos, 
+                //                     d => d.IdTipoDispositivo, 
+                //                     td => td.IdTipoDispositivo, 
+                //                     (dispositivo, tipoDispositivo) => new {dispositivo, tipoDispositivo.Nome}
+
+                //                 )
 
                 // SELECT * FROM Dispositivos d
                 // JOIN TipoDispositivos td
@@ -63,10 +102,3 @@ namespace AurumLab.Controllers
                 //      dispositivo = {nome: "xyz", "local": "sala 10"}
                 //      Nome = "notebook"
                 // }
-
-        }
-    }
-}
-
-
-

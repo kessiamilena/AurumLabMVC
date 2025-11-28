@@ -281,3 +281,4 @@ C:\Users\Senaisp\Desktop\Projeto Aurum MVC\AurumLab\obj\Debug\net9.0\compressed\
 C:\Users\Senaisp\Desktop\Projeto Aurum MVC\AurumLab\obj\Debug\net9.0\compressed\xhl0f964kw-{0}-jybjv5nqng-jybjv5nqng.gz
 C:\Users\Senaisp\Desktop\Projeto Aurum MVC\AurumLab\obj\Debug\net9.0\AurumLab.sourcelink.json
 C:\Users\Senaisp\Desktop\Projeto Aurum MVC\AurumLab\obj\Debug\net9.0\compressed\mzp31zw8w9-{0}-fnlze7omrw-fnlze7omrw.gz
+C:\Users\Senaisp\Desktop\Projeto Aurum MVC\AurumLab\obj\Debug\net9.0\compressed\ka3scl45r9-{0}-8yh5pdq0bu-8yh5pdq0bu.gz

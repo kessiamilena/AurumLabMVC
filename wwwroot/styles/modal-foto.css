@@ -1,0 +1,194 @@
+/* fechado por padrão */
+
+#modal-foto{
+
+  align-self: center;
+  justify-self: center;
+  background: var(--fundo);
+  border-radius: 18px;
+  padding: 28px 38px 26px;
+  box-shadow: -10px -10px 4px var(--sombra-passo-escura);
+  border: none;
+}
+
+.editar-foto {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+  background: var(--sombra-passo-escura); 
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  }
+
+.titulo-modal{
+  color: var(--amarelo);
+  font-weight: 800;
+  font-size: 1.25rem;
+}
+
+.corpo-modal{
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+  margin-top: 4px;
+}
+
+/* Limites de LARGURA e ALTURA da imagem */
+/* .imagem{
+  width: 80%;                * limite horizontal 
+  height: 60vh;              * limite vertical 
+  border-radius: 16px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+/* a foto sempre preenche o container respeitando os limites 
+.imagem img{
+  width: 100%;
+  height: 100%;
+} */
+
+.imagem{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagem img{
+  max-width: 250px;
+  max-height: 250px;
+  width: auto;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+
+.input-arquivo{
+  /* position: absolute; */
+  /* clip: rect(0 0 0 0); */
+  width: 1px; 
+  height: 1px;
+  padding: 0; 
+  border: 0;
+}
+
+/* reaproveita o link e torna clicável como botão */
+.link-upload{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--branco);
+  text-decoration: underline;
+  cursor: pointer;  
+}
+
+.link-upload .icone{ 
+    width: 18px; 
+    height: 18px; 
+}
+
+/* Ações */
+.acoes-modal{
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 6px;
+}
+
+/* Botões */
+.btn{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border-radius: 14px;
+  font-weight: 800;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 10px 20px var(--sombra-passo-escura);
+  font-size: 1rem;
+}
+
+.btn .icone{ 
+    width: 16px; 
+    height: 16px; 
+}
+
+.btn-secundario{
+  background-color: var(--fundo);
+  color: var(--amarelo);
+  border: 1px solid var(--amarelo);
+}
+
+.btn-secundario:hover{ 
+  background-color: #15273c; 
+}
+
+.btn-primario{
+  background: var(--amarelo);
+  color: var(--fundo);
+}
+
+.btn-primario:hover{ 
+  background-color: #cba137; 
+}
+
+/* Estado de sucesso */
+.resultado-sucesso{
+  display: none;
+  text-align: center;
+  margin-top: 8px;
+  gap: 16px;
+}
+
+/* quando o modal está em sucesso, esconda o conteúdo/ações e mostre o sucesso */
+.modal-foto.sucesso .corpo-modal,
+.modal-foto.sucesso .acoes-modal{ 
+  display: none; 
+}
+
+.modal-foto.sucesso #resultadoSucesso{
+  display: grid;
+  place-items: center;
+}
+
+.mensagem-sucesso{
+  color: var(--amarelo);
+  font-weight: 800;
+  font-size: 1.25rem;
+  margin: 10px 0 2px;
+}
+
+#resultadoSucesso .btn-primario{
+  padding: 12px 26px;
+  border-radius: 14px;
+}
+
+/* Responsivo */
+@media (max-width: 900px){
+  .janela-modal{ 
+    padding: 24px 20px; 
+  }
+
+  .acoes-modal{ 
+    flex-direction: column-reverse; 
+  }
+  
+  .btn{ 
+    justify-content: center; 
+    width: 100%; 
+  }
+
+  .imagem{ 
+    width: 100%; 
+    height: min(360px, 52vh); /* limites no mobile */
+  }  
+}

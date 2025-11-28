@@ -55,6 +55,8 @@
           <span class="saudacao">Olá, @Model.NomeUsuario!</span>
 
           <img class="avatar"
+              @* se o caminho não estiver vazio, retorna a foto do usuário que está no banco*@
+              @* se estiver vazio, retorna o caminho para uma imagem genérica que está dentro de assets *@
                src="@(string.IsNullOrEmpty(Model.FotoUsuario) 
                         ? "/assets/img/img-perfil.png" 
                         : Model.FotoUsuario)"

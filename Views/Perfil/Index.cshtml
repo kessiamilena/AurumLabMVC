@@ -1,0 +1,210 @@
+@model AurumLab.Models.PerfilViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurum Lab - Perfil</title>
+
+    <link rel="stylesheet" href="~/styles/global.css" />
+    <link rel="stylesheet" href="~/styles/perfil.css" />
+    <link rel="stylesheet" href="~/styles/modal-foto.css" />
+</head>
+
+<body>
+    <div class="layout">
+
+        <!-- Barra lateral -->
+        <aside class="barra-lateral">
+            <a class="marca" href="~/Dashboard/Dashboard">
+                <img class="logo" src="~/assets/img/icone-logo.svg" alt="Logo Aurum Lab">
+            </a>
+
+            <nav class="menu-lateral">
+                <ul class="lista-atalhos">
+
+                    <div class="atalhos-topo">
+                        <li>
+                            <a class="atalho" href="~/Dashboard/Dashboard" title="Dashboard">
+                                <img class="icone-aside" src="~/assets/icon/chart-simple-white.svg" alt="">
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="atalho ativo" href="#" title="Perfil">
+                                <img class="icone-aside" src="~/assets/icon/user-circle-black.svg" alt="">
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="atalho" href="~/Dispositivos/Index" title="Dispositivos">
+                                <img class="icone-aside" src="~/assets/icon/desktop.svg" alt="">
+                            </a>
+                        </li>
+                    </div>
+
+                    <li>
+                        <a class="atalho" href="~/Login/Sair" title="Sair">
+                            <img class="icone-aside" src="~/assets/icon/arrow-right-from-bracket.svg" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+
+        <!-- Conteúdo -->
+        <div class="conteudo">
+
+            <!-- Topo -->
+            <header class="topo">
+                <div class="titulo-area">
+                    <h1 class="titulo-pagina">Perfil</h1>
+                    <span class="linha-titulo"></span>
+                </div>
+
+                <div class="perfil-usuario">
+                    <span class="saudacao">Olá, @Model.NomeUsuario!</span>
+
+                    <input type="checkbox" id="toggle-foto" class="toggle-foto" hidden>
+
+                    <label for="toggle-foto" class="avatar-botao">
+                        <img class="avatar"
+                             src="@(Model.FotoBase64 != null ? $"data:image/*;base64,{Model.FotoBase64}" : "/assets/img/img-perfil.png")"
+                             alt="Foto do usuário">
+                    </label>
+
+                    <div class="detalhe-foto">
+                        <img src="~/assets/icon/angle-up.svg" alt="">
+                        <a href="#editar-foto" id="acao-foto" class="acao-foto">Alterar foto de perfil</a>
+                    </div>
+                </div>
+            </header>
+
+            <p class="subtitulo">Atualizar informações e permissões do usuário</p>
+
+
+            <!-- FORMULÁRIO PRINCIPAL -->
+            <section class="secao-perfil">
+                <form class="form-perfil" method="post" enctype="multipart/form-data">
+
+                <input type="hidden" name="IdUsuario" value="@Model.IdUsuario" />
+
+                    <div class="campo">
+                        <label for="nome">Nome completo</label>
+                        <input id="nome" name="NomeCompleto" type="text" value="@Model.NomeCompleto">
+                    </div>
+
+                    <div class="campo">
+                        <label for="usuario">Nome de usuário</label>
+                        <input id="usuario" name="NomeUsuario" type="text" value="@Model.NomeUsuario">
+                    </div>
+
+                    <div class="campo">
+                        <label for="email">E-mail</label>
+                        <input id="email" name="Email" type="email" value="@Model.Email">
+                    </div>
+
+                    <div class="campo">
+                        <label for="perfil">Perfil</label>
+                        <div class="select-wrapper">
+                            <select id="perfil" name="RegraId">
+                              @foreach (var regra in Model.Regras)
+                              {
+                                  if (regra.IdRegra == Model.RegraId)
+                                  {
+                                      <option value="@regra.IdRegra" selected>@regra.Nome</option>
+                                  }
+                                  else
+                                  {
+                                      <option value="@regra.IdRegra">@regra.Nome</option>
+                                  }
+                              }
+                          </select>
+                        </div>
+                    </div>
+
+                    <div class="campo">
+                        <label for="senha">Senha</label>
+                        <input id="senha" name="NovaSenha" type="password" placeholder="Digite só se quiser trocar">
+                    </div>
+
+                    <div class="campo">
+                        <label for="confirmar">Confirmar senha</label>
+                        <input id="confirmar" name="ConfirmarSenha" type="password" placeholder="Confirmar nova senha">
+                    </div>
+
+                    <div class="acoes-form">
+                        <a href="~/Dashboard/Dashboard" class="btn btn-secundario">
+                            <img src="~/assets/icon/xmark.svg" alt="">
+                            Cancelar
+                        </a>
+
+                        <button type="submit" class="btn btn-primario">
+                            <img src="~/assets/icon/save.svg" alt="">
+                            Salvar alterações
+                        </button>
+                    </div>
+
+                </form>
+
+
+                @if (TempData["Sucesso"] != null)
+                {
+                    <div class="alerta-sucesso">
+                        @TempData["Sucesso"]
+                    </div>
+                }
+
+            </section>
+        </div>
+    </div>
+
+    @* Modal de foto*@
+    <dialog id="modal-foto">
+      <form id="form-foto" method="post" enctype="multipart/form-data" action="/Perfil/AtualizarFoto">
+
+          <input type="hidden" name="idUsuario" value="@Model.IdUsuario" />
+
+          <div id="edicao" class="editar-foto">
+              <h2 class="titulo-modal">Editar imagem</h2>
+
+              <div class="corpo-modal">
+                  <figure class="imagem">
+                      <img id="preview-foto"
+                          src="@(Model.FotoBase64 != null ? $"data:image/*;base64,{Model.FotoBase64}" : "/assets/img/img-perfil.png")"
+                          alt="Pré-visualização da foto">
+                  </figure>
+
+                  <input type="file" id="upload-foto" name="foto" class="input-arquivo" accept="image/*">
+
+                  <label for="upload-foto" class="link-upload">
+                      <img class="icone" src="~/assets/icon/upload.svg" alt="">
+                      Fazer upload dos arquivos
+                  </label>
+              </div>
+
+              <div class="acoes-modal">
+                  <a href="#" class="btn btn-secundario" id="fecharModalFoto">
+                      <img class="icone" src="~/assets/icon/xmark.svg" alt="">
+                      Cancelar
+                  </a>
+
+                  <button type="submit" class="btn btn-primario">
+                      <img class="icone" src="~/assets/icon/save.svg" alt="">
+                      Salvar foto
+                  </button>
+              </div>
+          </div>
+
+      </form>
+  </dialog>
+
+
+    <script src="~/scripts/modal.js"></script>
+</body>
+</html>
