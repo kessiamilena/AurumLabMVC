@@ -1,0 +1,407 @@
+body{
+  background: var(--fundo);
+  color: var(--branco);
+}
+
+/* Layout geral */
+.layout{
+  display: grid;
+  grid-template-columns: 8% 1fr;
+  min-height: 100vh;
+}
+
+/* Barra lateral */
+
+.barra-lateral{
+  display: flex;
+  background-color: var(--fundo);
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 40px 60px;
+  gap: 22px;
+  height: 100vh;
+  border-radius: 0 20px 20px 0;
+  box-shadow: 10px 0 4px rgba(28, 28, 28, 0.25);
+}
+
+.logo{
+  width: 65px;
+  height: 65px;
+}
+
+.lista-atalhos {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  height: 100%;
+}
+
+.menu-lateral {
+  height: 100%;
+}
+
+.atalhos-topo{
+  margin: 15px 0 0 0;
+  gap: 50px;
+  display: grid;
+}
+
+.atalho{
+  width: 80px;
+  height: 60px;
+  display: grid;
+  place-items: center left;
+  padding-left: 15px;
+}
+
+.atalho.ativo{
+  background: var(--amarelo);
+  border-radius: 20px 0 0 20px;
+}
+
+.icone-aside {
+  width: 50%;
+  height: 50%;
+}
+
+.icone{
+  width: 30px;
+  height: 30px;
+}
+
+
+/* Conteúdo / topo */
+.conteudo{
+  display: flex;
+  flex-direction: column;
+  padding: 20px 100px 40px 60px;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.topo{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.titulo-area{
+  display: grid;
+}
+
+.titulo-pagina{
+  font-size: 2.1rem;
+  font-weight: 800;
+}
+
+.linha-titulo{
+  width: 120px;
+  height: 3px;
+  background: var(--amarelo);
+  margin-top: 8px;
+  border-radius: 2px;
+}
+
+.subtitulo {
+    margin-top: 20px;
+}
+
+.perfil-usuario{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.saudacao{
+  color: var(--branco);
+  opacity: .9;
+  font-size: 1.2rem;
+}
+
+.avatar{
+  width: 60px;
+  height: 60px;
+}
+
+/* Filtros */
+.filtros{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 60px 0 60px;
+}
+
+.campo-busca{
+  position: relative;
+  max-width: 520px;
+}
+
+.campo-busca input[type="search"]{
+  width: 100%;
+  padding: 16px 18px 16px 46px;
+  font-size: 15px; 
+  color: var(--branco);
+  background-color: var(--fundo);
+  border: none; 
+  border-radius: 12px; 
+  outline: none; 
+  box-shadow:
+    inset 5px 5px 10px rgba(0,0,0,0.25),
+    inset -5px -5px 10px rgba(107,123,131,0.25);
+}
+
+.campo-busca .icone-busca{
+  position: absolute; 
+  left: 14px; 
+  top: 50%; 
+  transform: translateY(-50%);
+  width: 18px; 
+  height: 18px; 
+}
+
+.select-linha{ 
+    display: flex; 
+    gap: 18px; 
+}
+
+.select-wrapper{
+    width: 50%;
+    padding-right: 30px;
+    border-radius: 12px;
+    box-shadow:
+    inset 5px 5px 10px rgba(0,0,0,0.25),   /* sombra topo (esquerda) */
+    inset -5px -5px 10px rgba(107, 123, 131, 0.25); 
+}
+
+.select-wrapper select{
+    background: none;
+    border-radius: 0;
+    /* box-shadow: none; */
+    width: 100%;
+    padding: 16px 18px;
+    font-size: 15px;
+    color: var(--branco);
+    border: none;
+    outline: none;
+}
+
+select option {
+    background-color: var(--fundo);
+}
+
+/* Tabela */
+.secao-tabela{ 
+  margin-top: 12px; 
+}
+
+.tabela-responsiva{ 
+  width: 100%; 
+  overflow-x: auto; 
+}
+
+.tabela{
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--branco);
+  font-size: 0.98rem;
+}
+
+.tabela thead th{
+  text-align: left; 
+  font-weight: 700; 
+  padding: 18px 8px;
+  color: var(--texto-suave);
+  border-bottom: 1px solid var(--cinza-borda);
+}
+
+.tabela tbody td{
+  padding: 20px 8px;
+  border-bottom: 1px solid var(--cinza-borda);
+}
+
+.col-acoes{ 
+  width: 120px; 
+  text-align: right; 
+}
+
+.acoes{
+  display: flex; 
+  gap: 14px; 
+  justify-content: flex-end; 
+  align-items: center;
+}
+
+.icone-btn{
+  background: transparent; 
+  border: 0; 
+  padding: 6px; 
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.icone-btn:hover{
+  background: rgba(255,255,255,0.06);
+}
+
+/* Paginação */
+.paginacao{
+  margin: 18px 0 0; 
+  padding-bottom: 10px;
+  display: flex; 
+  align-items: center; 
+  gap: 12px; 
+  justify-content: flex-end;
+  color: var(--texto-suave);
+}
+
+.paginacao .proxima{
+  background: transparent; 
+  border: 1px solid var(--cinza-borda);
+  width: 38px; 
+  height: 38px; 
+  border-radius: 10px; 
+  cursor: pointer;
+  display: grid; 
+  place-items: center;
+}
+
+.paginacao .proxima:hover{
+  background: rgba(255,255,255,0.06);
+}
+
+
+
+/* Responsivo */
+@media (max-width: 1180px){
+
+  .conteudo{ 
+    padding: 24px; 
+  }
+
+  .filtros{ 
+    grid-template-columns: 1fr; 
+  }
+
+  .select-linha{ 
+    flex-wrap: wrap; 
+  }
+}
+
+@media (max-width: 980px){
+
+  .layout{ 
+    grid-template-columns: 84px 1fr; 
+  }
+}
+
+@media (max-width: 620px){
+  
+  .col-acoes{ 
+    width: 88px; 
+  }
+
+  .select-wrapper{ 
+    min-width: min(240px, 100%); 
+  }
+}
+
+
+/* EDITAR DISPOSITIVO */
+
+/* Seção do formulário */
+.secao-perfil{
+  max-width: 720px;
+  margin-top: 40px;
+}
+
+/* Formulário */
+.secao-perfil form{
+  display: grid;
+  gap: 26px;
+}
+
+
+.campo{
+  display: grid;
+  gap: 8px;
+}
+
+.campo label{
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--texto-suave);
+}
+
+/* Inputs e selects do formulário */
+.campo input,
+.campo select{
+  width: 100%;
+  padding: 16px 18px;
+  font-size: 15px;
+  color: var(--branco);
+  background-color: var(--fundo);
+  border: none;
+  border-radius: 12px;
+  outline: none;
+  box-shadow:
+    inset 5px 5px 10px rgba(0,0,0,0.25),
+    inset -5px -5px 10px rgba(107,123,131,0.25);
+}
+
+.campo select option{
+  background-color: var(--fundo);
+}
+
+/* AÇÕES DO FORMULÁRIO */
+.acoes-form{
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+/* Botões */
+.btn{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+}
+
+.btn-primario{
+  background: var(--amarelo);
+  color: #0c0c0c;
+}
+
+.btn-primario:hover{
+  filter: brightness(1.05);
+}
+
+.btn-secundario{
+  background: transparent;
+  border: 1px solid var(--amarelo);
+  color: var(--branco);
+}
+
+.btn-secundario:hover{
+  background: rgba(255,255,255,0.06);
+}
+
+/* Ícones dos botões */
+.btn img{
+  width: 16px;
+  height: 16px;
+}

@@ -284,3 +284,4 @@ C:\Users\Senaisp\Desktop\Projeto Aurum MVC\AurumLab\obj\Debug\net9.0\compressed\
 C:\Users\Senaisp\Desktop\Projeto Aurum MVC\AurumLab\obj\Debug\net9.0\compressed\cq0zsldqk9-{0}-8jxm2w76o3-8jxm2w76o3.gz
 C:\Users\Senaisp\Desktop\Projeto Aurum MVC\AurumLab\obj\Debug\net9.0\compressed\4ieldj3pkw-{0}-vzqubb3vsn-vzqubb3vsn.gz
 C:\Users\Senaisp\Desktop\Projeto Aurum MVC\AurumLab\obj\Debug\net9.0\compressed\m2803ys4ct-{0}-p774kt0c49-p774kt0c49.gz
+C:\Users\Senaisp\Desktop\Projeto Aurum MVC\AurumLab\obj\Debug\net9.0\compressed\r1d3ajz6ci-{0}-y5j4g5prrn-y5j4g5prrn.gz

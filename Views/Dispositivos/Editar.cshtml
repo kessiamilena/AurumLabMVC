@@ -1,0 +1,138 @@
+@model AurumLab.Models.EditarDispositivoViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Dispositivo</title>
+
+    <link rel="stylesheet" href="~/styles/global.css" />
+    <link rel="stylesheet" href="~/styles/dispositivos.css">
+</head>
+
+<body>
+<div class="layout">
+
+    <!-- Barra lateral -->
+    <aside class="barra-lateral">
+        <a class="marca" href="~/Dashboard/Dashboard">
+            <img class="logo" src="~/assets/img/icone-logo.svg" alt="">
+        </a>
+
+        <nav class="menu-lateral">
+            <ul class="lista-atalhos">
+                <div class="atalhos-topo">
+                    <li>
+                        <a class="atalho" href="~/Dashboard/Dashboard">
+                            <img class="icone-aside" src="~/assets/icon/chart-simple-white.svg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="atalho" href="~/Perfil/Index">
+                            <img class="icone-aside" src="~/assets/icon/user-circle.svg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="atalho ativo" href="#">
+                            <img class="icone-aside" src="~/assets/icon/desktop-black.svg" alt="">
+                        </a>
+                    </li>
+                </div>
+
+                <li>
+                    <a class="atalho" href="~/Login/Sair">
+                        <img class="icone-aside" src="~/assets/icon/arrow-right-from-bracket.svg" alt="">
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Conteúdo -->
+    <div class="conteudo">
+
+        <header class="topo">
+            <div class="titulo-area">
+                <h1 class="titulo-pagina">Editar Dispositivo</h1>
+                <span class="linha-titulo"></span>
+            </div>
+        </header>
+
+        <section class="secao-perfil">
+            <form method="post" action="~/Dispositivos/Editar">
+
+                <!-- ID -->
+                <input type="hidden" name="IdDispositivo" value="@Model.IdDispositivo" />
+
+                <!-- Nome -->
+                <div class="campo">
+                    <label>Nome</label>
+                    <input 
+                        type="text" 
+                        name="Nome" 
+                        value="@Model.Nome" />
+                </div>
+
+                <!-- Tipo -->
+                <div class="campo">
+                    <label>Tipo</label>
+                    <select name="IdTipoDispositivo">
+                        @foreach (var tipo in Model.Tipos)
+                        {
+                            var selecionado = tipo.IdTipoDispositivo == Model.IdTipoDispositivo ? "selected" : "";
+                            <option value="@tipo.IdTipoDispositivo" selected="@selecionado">
+                                @tipo.Nome
+                            </option>
+                        }
+                    </select>
+
+                </div>
+
+                <!-- Local -->
+                <div class="campo">
+                    <label>Local</label>
+                    <select name="IdLocal">
+                        @foreach (var local in Model.Locais)
+                        {
+                            var selecionado = local.IdLocal == Model.IdLocal ? "selected" : "";
+                            <option value="@local.IdLocal" selected="@selecionado">
+                                @local.Nome
+                            </option>
+                        }
+                    </select>
+
+                </div>
+
+                <!-- Data Última Manutenção -->
+                <div class="campo">
+                    <label>Última manutenção</label>
+                    <input 
+                        type="date"
+                        name="DataUltimaManutencao"
+                        value="@(Model.DataUltimaManutencao?.ToString("yyyy-MM-dd"))" />
+                </div>
+
+                <!-- Ações -->
+                <div class="acoes-form">
+                    <a class="btn btn-secundario" href="~/Dispositivos/Index">
+                        <img src="~/assets/icon/xmark.svg" alt="">
+                        Cancelar
+                    </a>
+
+                    <button class="btn btn-primario" type="submit">
+                        <img src="~/assets/icon/save.svg" alt="">
+                        Salvar
+                    </button>
+                </div>
+
+            </form>
+        </section>
+
+    </div>
+</div>
+</body>
+</html>
