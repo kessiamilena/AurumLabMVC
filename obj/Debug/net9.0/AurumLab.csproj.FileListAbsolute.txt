@@ -241,7 +241,6 @@ C:\Users\Senaisp\Desktop\Projeto Aurum MVC\AurumLab\obj\Debug\net9.0\rjsmrazor.d
 C:\Users\Senaisp\Desktop\Projeto Aurum MVC\AurumLab\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
 C:\Users\Senaisp\Desktop\Projeto Aurum MVC\AurumLab\obj\Debug\net9.0\scopedcss\bundle\AurumLab.styles.css
 C:\Users\Senaisp\Desktop\Projeto Aurum MVC\AurumLab\obj\Debug\net9.0\compressed\6u24a664mb-{0}-61n19gt1b8-61n19gt1b8.gz
-C:\Users\Senaisp\Desktop\Projeto Aurum MVC\AurumLab\obj\Debug\net9.0\compressed\2s4kqly44l-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
 C:\Users\Senaisp\Desktop\Projeto Aurum MVC\AurumLab\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\Senaisp\Desktop\Projeto Aurum MVC\AurumLab\obj\Debug\net9.0\staticwebassets.build.json.cache
 C:\Users\Senaisp\Desktop\Projeto Aurum MVC\AurumLab\obj\Debug\net9.0\staticwebassets.development.json
@@ -282,3 +281,6 @@ C:\Users\Senaisp\Desktop\Projeto Aurum MVC\AurumLab\obj\Debug\net9.0\compressed\
 C:\Users\Senaisp\Desktop\Projeto Aurum MVC\AurumLab\obj\Debug\net9.0\AurumLab.sourcelink.json
 C:\Users\Senaisp\Desktop\Projeto Aurum MVC\AurumLab\obj\Debug\net9.0\compressed\mzp31zw8w9-{0}-fnlze7omrw-fnlze7omrw.gz
 C:\Users\Senaisp\Desktop\Projeto Aurum MVC\AurumLab\obj\Debug\net9.0\compressed\ka3scl45r9-{0}-8yh5pdq0bu-8yh5pdq0bu.gz
+C:\Users\Senaisp\Desktop\Projeto Aurum MVC\AurumLab\obj\Debug\net9.0\compressed\cq0zsldqk9-{0}-8jxm2w76o3-8jxm2w76o3.gz
+C:\Users\Senaisp\Desktop\Projeto Aurum MVC\AurumLab\obj\Debug\net9.0\compressed\4ieldj3pkw-{0}-vzqubb3vsn-vzqubb3vsn.gz
+C:\Users\Senaisp\Desktop\Projeto Aurum MVC\AurumLab\obj\Debug\net9.0\compressed\m2803ys4ct-{0}-p774kt0c49-p774kt0c49.gz
